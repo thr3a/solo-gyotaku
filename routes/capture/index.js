@@ -12,8 +12,8 @@ module.exports = async function (fastify, opts) {
     reply.type('application/pdf')
     reply.headers({
       'Content-Disposition': 'inline',
-      'X-Cap-Url': response.url,
-      'X-Cap-Title': response.title
+      'X-Cap-Url': encodeURIComponent(response.url),
+      'X-Cap-Title': encodeURIComponent(response.title)
     })
     return reply.send(pdfBuffer)
   })
