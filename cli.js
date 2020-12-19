@@ -2,7 +2,6 @@ const commandLineArgs = require('command-line-args')
 const Capture = require('./lib/capture')
 
 process.on('unhandledRejection', (error) => {
-  console.log(cap.response('ng'))
   console.error(error)
   process.exit(1)
 })
@@ -25,6 +24,6 @@ const cap = new Capture(options);
   await cap.openBrowser()
   await cap.goto()
   await cap.save(true)
+  console.log(await cap.response())
   await cap.close()
-  console.log(cap.response('ok'))
 })()
